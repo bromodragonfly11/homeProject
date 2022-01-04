@@ -50,13 +50,14 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
+            'name' => 'UserRegistrationLog',
             'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/UserRegistrationLog.log'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 
