@@ -51,7 +51,10 @@ class RegisteredUserController extends Controller
 
 
         Auth::login($user);
-        Log::info(Auth::user()->created_at);
+        Log::build([
+            'driver' => 'single',
+            'path' => storage_path('logs/UserRegistrationLog.log'),
+        ])->info('ID '.Auth::user()->id.', дата регистрации '.Auth::user()->created_at );
 
         return redirect('/');
     }
